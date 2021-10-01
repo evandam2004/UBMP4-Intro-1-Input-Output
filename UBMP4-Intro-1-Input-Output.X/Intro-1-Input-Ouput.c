@@ -53,7 +53,16 @@ int main(void)
         }
         
         // Add code for your Program Analysis and Programming Activities here:
-
+       // Conditional 'AND' code
+        if(SW3 == 0 && SW4 == 0)
+        {
+            LED4 = 1;
+        }
+        else
+        {
+            LED4 = 0;
+        }
+       
         // Activate bootloader if SW1 is pressed.
         if(SW1 == 0)
         {
@@ -67,20 +76,25 @@ int main(void)
  * 1. How many times do the LEDs flash if SW2 is quickly pressed and released?
  *    Do the LEDs keep flashing when SW2 is held? Look at the program and
  *    explain why this happens when SW2 is held.
+ * pressing the button starts the function, which is turning on LED 3-6, for 100ms (1 second) 
+ * then it turns off for 1 second.
  * 
  * 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
- * 
+ * 0 means that the device is turned off, and 1 means that the device is being turned on
+ *  
  * 3. What voltage do you expect the microcontroller to output to LED D3 when
  *    the statement LED3 = 0; runs? What voltage do you expect the output to be
  *    when the statement LED3 = 1; runs?
- * 
+ * When LED3 = 0, the voltage is 0 and when LED3 = 1, the voltage is 1.8
  *    You can confirm the output voltage with a voltmeter if you have access
  *    to one. If you tried that, did the voltage match your prediction?
  * 
  * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
  *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
  *    equal sign? What operation is performed by two equal signs?
- * 
+ *  a single equal sign is to make the left side equal to the right side.
+ *  The double equal sign means that you are comparing the right side to the 
+ *  side 
  * 5. The following program code includes instructions that write to the PORTC
  *    output latches directly. Try it by copying and pasting this code below
  *    the existing SW2 'if' structure, at the location shown by the comment.
@@ -96,7 +110,11 @@ int main(void)
  *    What happens when pushbutton SW3 is pressed? Identify at least one
  *    advantage and one disadvantage of controlling the LEDs using 'LATC' writes
  *    rather than through individual 'LEDn = x;' statements.
- * 
+ * when SW3 was pressed, the lights turned on without turning off, and the only
+ * way to turn the off was to click another switch that would turn them off
+ * An advantage in using LATC is all the led lights turn on all at same time 
+ * a disadvantage is that each time you cant use two switches at the same time 
+ * so it does not work well with  multiple  switches being pressed
  * 6. Next, compare the operation of 'if' and 'while' structures to simulate
  *    momentary buttons. Replace the code you added in 5, above, with this code:
 
@@ -118,14 +136,19 @@ int main(void)
         LED5 = 0;
 
  *    First, try pressing and releasing SW3 and SW4 one at a time.
- * 
+ *  Both of the light turn off
  *    Next, press and hold SW3 while pressing and releasing SW4. Does it work
  *    as expected?
- * 
+ * it does work, both of the lights are turned on and turn off when they are 
+ * both released 
  *    Next, try press and holding SW4 while pressing and releasing SW3. Does it
  *    work as expected? Explain the difference in operation between the 'if' and
  *    'while' structures making up the momentary button code.
- * 
+ *  it does not work,switch 3 doesnt work and it just never turns on. 
+ * In the IF statement it is saying that if the SW3 is pressed, LED4 is spose to
+ * turn on and when the button isnt pressed the LED isn't turned off. In the 
+ * while structure, it's stating that if the SW4 is turned on only  LED5 can be 
+ * turned on and if it isn't being pressed the LED5 is turned off 
  * 7. Let's explore logical conditions using 'if' statements. Replace the code
  *    added in 6, above, with this nested if code to make a logical AND
  *    condition that will light LED D4 only if both SW3 and SW4 are pressed:
@@ -149,7 +172,7 @@ int main(void)
 
  *    Test the code to ensure it works as expected. Does the order of the if
  *    conditions matter? (eg. swap the conditional checks for SW3 and SW4)
- * 
+ *  the conditions don't matter aslong as you are pressing both of the buttons
  * 8. Next, replace the code from 7 with the following code which implements a
  *    logical AND conditional operator composed of two ampersands '&&':
  
