@@ -34,37 +34,34 @@ int main(void)
         // If SW2 is pressed, make a flashy light pattern
         if(SW2 == 0)
         {
-            LED3 = 1;
-            __delay_ms(100);
             LED4 = 1;
-            __delay_ms(100);
+            __delay_ms(250);
             LED5 = 1;
-            __delay_ms(100);
+            __delay_ms(1000);
+            LED3 = 1;
+            __delay_ms(1500);
             LED6 = 1;
-            __delay_ms(100);
-            LED3 = 0;
-            __delay_ms(100);
+            __delay_ms(2500);
             LED4 = 0;
-            __delay_ms(100);
+            __delay_ms(250);
             LED5 = 0;
-            __delay_ms(100);
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
             LED6 = 0;
-            __delay_ms(100);
+            __delay_ms(2500);
         }
         
         // Add code for your Program Analysis and Programming Activities here:
-       // Conditional 'AND' code
-        if(SW3 == 0 && SW4 == 0)
+        // Conditional 'AND' code
+        // Conditional 'OR' code
+        // Make a tone while SW5 is held
+        // Make a tone while SW5 is held
+        if(SW5 == 0)
         {
-            LED4 = 1;
+            BEEPER = !BEEPER;
+            __delay_us(250);
         }
-        else
-        {
-            LED4 = 0;
-        }
-       
-        // Activate bootloader if SW1 is pressed.
-        if(SW1 == 0)
         {
             RESET();
         }
@@ -173,6 +170,7 @@ int main(void)
  *    Test the code to ensure it works as expected. Does the order of the if
  *    conditions matter? (eg. swap the conditional checks for SW3 and SW4)
  *  the conditions don't matter aslong as you are pressing both of the buttons
+ * 
  * 8. Next, replace the code from 7 with the following code which implements a
  *    logical AND conditional operator composed of two ampersands '&&':
  
@@ -189,6 +187,7 @@ int main(void)
  *    Does '&&' work the same way as the nested if structures? Can you think of
  *    at least one advantage of using a logical conditional operator instead of
  *    nested if structures?
+ * it uses less lines and is more neat 
  * 
  * 9. Replace the double ampersand '&&' with double vertical bars '||)' to make
  *    a logical OR conditional operator. Your code should look like this:
@@ -204,7 +203,7 @@ int main(void)
         }
 
  *    Describe the conditions under which LED4 turns on.
- * 
+ * if either switch 3 or 4 is pushed then the LED turns on.
  * 
  * Programming Activities
  * 
@@ -214,26 +213,33 @@ int main(void)
  *    Can the delay be made even longer? Try 1000 ms. How big can the delay be
  *    before MPLAB-X produces an error message? (Hint: can you think of a fast
  *    and efficient way of guessing an unknown number?)
+ * 4205ms
+ * a fast way to figure this out is by trial and error, you can slowly break down
+ * the numbers, for example you can start at 5000, if it dosent work then you
+ * know that you can go lower than 5000 and then you do 4500 and if that dosent
+ * work you can go down even more, and when you see that 4000 works you can just 
+ * see if you can go up slowly from 4000
+ * 
  * 
  * 2. The '__delay_ms();' function only accepts integers as delay values. To
  *    make delays shorter than 1ms, specify a delay in microseconds using the
  *    '__delay_us();' function. You won't be able to see such short LED flashes
  *    with your eyes, but you could measure them using an oscilloscope, or hear
  *    them if they are used to turn the piezo beeper on and off. Try this code:
- 
-        // Make a tone while SW5 is held
-        if(SW5 == 0)
-        {
-            BEEPER = 1;
-            __delay_us(567);
-            BEEPER = 0;
-            __delay_us(567);
-        }
-
+ *
+ * // Make a tone while SW5 is held
+ *       if(SW5 == 0)
+ *      {
+ *           BEEPER = 1;
+ *           __delay_us(567);
+ *           BEEPER = 0;
+ *           __delay_us(567);
+ *       }
  *    Try changing the delay values in both of the __delay_us(); functions.
  *    Does the pitch of the tone increase or decrease if the delay value is
  *    made smaller?
- * 
+ * increasing the delay on the function makes the tone decrease and if you
+ * decrease the the value the tone increases , more high pitch.
  * 3. This code demonstrates a more compact way of toggling the beeper output
  *    using a logical NOT operator '!'. Replace the code above, with this code:
  
@@ -250,6 +256,8 @@ int main(void)
  *    code, can you think of one or more disadvantages based on its output when
  *    the button is released?
  * 
+ * a disadvantage would be that there is only variable that you can play
+ * around with.
  * 4. Using modified versions of the original SW2 'if' structure, create a
  *    program that makes a unique LED flashing pattern for each pushbutton.
  * 
