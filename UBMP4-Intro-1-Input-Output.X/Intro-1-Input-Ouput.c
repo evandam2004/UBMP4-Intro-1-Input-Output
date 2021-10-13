@@ -41,7 +41,7 @@ int main(void)
             LED3 = 1;
             __delay_ms(1500);
             LED6 = 1;
-            __delay_ms(2500);
+            __delay_ms(1750);
             LED4 = 0;
             __delay_ms(250);
             LED5 = 0;
@@ -49,13 +49,64 @@ int main(void)
             LED3 = 0;
             __delay_ms(1500);
             LED6 = 0;
-            __delay_ms(2500);
+            __delay_ms(1750);
         }
-        
+         if(SW3 == 0)
+        {
+            LED6 = 1;
+            __delay_ms(250);
+            LED5 = 1;
+            __delay_ms(1000);
+            LED3 = 1;
+            __delay_ms(1500);
+            LED4 = 1;
+            __delay_ms(1750);
+            LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
+        } if(SW4 == 0)
+        {
+            LED5 = 1;
+            __delay_ms(250);
+            LED6 = 1;
+            __delay_ms(1000);
+            LED3 = 1;
+            __delay_ms(1500);
+            LED4 = 1;
+            __delay_ms(1750);
+            LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
+        } if(SW5 == 0)
+        {
+            LED5 = 1;
+            __delay_ms(250);
+            LED4 = 1;
+            __delay_ms(1000);
+            LED6 = 1;
+            __delay_ms(1500);
+            LED3 = 1;
+            __delay_ms(1750);
+            LED4 = 0;
+            __delay_ms(250);
+            LED5 = 0;
+            __delay_ms(1000);
+            LED3 = 0;
+            __delay_ms(1500);
+            LED6 = 0;
+            __delay_ms(1750);
+        }
         // Add code for your Program Analysis and Programming Activities here:
-        // Conditional 'AND' code
-        // Conditional 'OR' code
-        // Make a tone while SW5 is held
         // Make a tone while SW5 is held
         if(SW5 == 0)
         {
@@ -255,8 +306,7 @@ int main(void)
  *    be in after this code runs? While one advantage of this method is smaller
  *    code, can you think of one or more disadvantages based on its output when
  *    the button is released?
- * 
- * a disadvantage would be that there is only variable that you can play
+ *  a disadvantage would be that there is only variable that you can play
  * around with.
  * 4. Using modified versions of the original SW2 'if' structure, create a
  *    program that makes a unique LED flashing pattern for each pushbutton.
@@ -264,7 +314,7 @@ int main(void)
  *    Test each of your flashing patterns. Describe what happens when more than
  *    one button is held. Do all of the patterns try to flash the LEDs at the
  *    same time, or sequentially? Explain why this is.
- * 
+ *
  * 5. Create a program that makes a different tone for each pushbutton.
  * 
  *    Test each tone by pressing each button individually. Next, press two or
