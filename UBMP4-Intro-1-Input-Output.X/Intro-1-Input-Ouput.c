@@ -113,6 +113,8 @@ int main(void)
             BEEPER = !BEEPER;
             __delay_us(250);
         }
+        
+        if(SW1 == 0)
         {
             RESET();
         }
@@ -291,6 +293,7 @@ int main(void)
  *    made smaller?
  * increasing the delay on the function makes the tone decrease and if you
  * decrease the the value the tone increases , more high pitch.
+ * 
  * 3. This code demonstrates a more compact way of toggling the beeper output
  *    using a logical NOT operator '!'. Replace the code above, with this code:
  
