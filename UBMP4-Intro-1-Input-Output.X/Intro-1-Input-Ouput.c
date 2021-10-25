@@ -35,14 +35,13 @@ int main(void)
         // If SW2 is pressed, make a flashy light pattern
         if(SW3 == 0)
         {
-            LED4 = 1;
-            __delay_ms(250);
+            LED1 = 1;
         }
         if(SW4 == 0)
         {
-            LED4 = 0;
-            __delay_ms(0);
+            LED1 = 0;
         }
+         
         // Add code for your Program Analysis and Programming Activities here:
         // Make a tone while SW5 is held
         
@@ -359,12 +358,11 @@ int main(void)
  *    an industrial machine. LED D4 should turn on when SW3 is pressed, stay on
  *    even after SW3 is released, and turn off when SW4 is pressed. Test your
  *    program to make sure it works.
- * if(SW2 == 0)
+ * if(SW3 == 0)
         {
             LED4 = 1;
-            __delay_ms(250);
         }
-        if(SW3 == 0)
+        if(SW4 == 0)
         {
             LED4 = 0;
             __delay_ms(250);
@@ -374,6 +372,7 @@ int main(void)
  *    of LED D4 compare between its normal on state following SW3 being pressed
  *    to this new state when both SW3 and SW4 are bing held? Can you explain
  *    why it changes?
+ * 
  * When you press both of the buttons at the same time, the light stays on, 
  * the brightness get a little less bright, This is because there is more than
  * 1 button being presssed, so that in the loop there is less current going
@@ -386,11 +385,31 @@ int main(void)
  *    Using a logical conditional operator, modify the start-stop program from
  *    activity 5 to make it safer. SW3 should only turn on LED D4 if SW4 is
  *    released.
- * 
+ *  if(SW3 == 0)
+        {
+            LED4 = 1;
+        }
+        if(SW4 == 0)
+        {
+            LED4 = 0;
+            __delay_ms(250);
+        }
+         if(SW3 == 0 && SW4 == 0)
+        {
+            LED4 = 0;
+         }
  * 9. LED D1 is normally used to indicate that a program is running, but it can
  *    be controlled by your program as well. If you take a look at the UBMP4
  *    schematic, you will see that LED D1's cathode (or negative) pin is
  *    connected to the microcontroller instead of the anode (positive) pin as
  *    with the other LEDs. This means that you need to make D1's output a zero
  *    to turn D1 on. Try it! Make a program that controls or flashes LED D1.
+ * if(SW3 == 0)
+        {
+            LED1 = 1;
+        }
+        if(SW4 == 0)
+        {
+            LED1 = 0;
+        }
  */
